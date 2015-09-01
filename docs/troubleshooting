@@ -1,0 +1,16 @@
+Attempting to create a new Area, I got this
+
+java.io.IOException: tmpFile.renameTo(classFile) failed
+
+... and a long stack trace. Trying to solve this problem,
+I ran across this possible fix: remove Macafee protection.
+
+http://stackoverflow.com/questions/3688624/cause-of-tmpfile-renametoclassfile-failed-during-jsp-compilation
+
+"Fast forward four years to 2014. Tomcat 8, Java 8, Windows 8,
+same error. After half a day of frustration it turns out to be
+caused by my antivirus software, which in my case was McAfee.
+I went extreme and uninstalled the whole thing. But there was
+probably some setting I could have made to exclude the Tomcat
+directories from live scanning."
+
