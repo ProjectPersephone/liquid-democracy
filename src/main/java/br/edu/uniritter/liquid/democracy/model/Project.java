@@ -23,7 +23,7 @@ public class Project extends BaseEntity implements Serializable {
 	@Column(name = "name")
 	private String name;
 	
-	//private Candidate author;
+	private Candidate author;
 	
 	@Column(name = "addte")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -67,14 +67,14 @@ public class Project extends BaseEntity implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	/*
+	
 	public Candidate getAuthor() {
 		return author;
 	}
 	public void setAuthor(Candidate author) {
 		this.author = author;
 	}
-	*/
+	
 	public Date getAddate() {
 		return addate;
 	}
