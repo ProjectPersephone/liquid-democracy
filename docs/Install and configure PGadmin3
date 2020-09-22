@@ -1,0 +1,49 @@
+[So far, this is just a straight translation of the PGadmin3 instructions in Portuguese as of Nov 9, 2013; 
+Derived work, courtesy of Fabrízio de Royes Mello <fabriziomello@gmail.com>]
+
+To make life easier for people when using PostgreSQL we can install PGAdmin3, following the steps:
+
+1) Open the terminal
+2) Do a cleaning
+   $ sudo apt-get autoremove
+3) Install PGAdmin3
+
+To access just access the Dash by pressing the "windows" key and typing "pgadmin".
+After accessing PGAdmin3 we need to configure it to access PostgreSQL.
+
+1) On the home screen click on the picture of a "plug" that has a "Add connection to a server" hint that will open a form called "New Server Registration"
+
+2) Fill in the following fields
+
+Name: liquid-democracy
+Host: localhost
+
+(the other fields leave the default value)
+
+3) In the "Object Browser" on the left there is "Server Groups", so just click on the "+" to be able to browse the server
+
+4) Click on "Server Groups> Servers> liquid-democracy> Databases (3)> postgres" and then on the task bar in "SQL" to open the PGAdmin query editor
+
+-- App Role CREATE ROLE app_liquid_democracy
+
+  LOGIN PASSWORD 'app_liquid_democracy';
+  
+-- DBA Role
+  CREATE ROLE dba
+  LOGIN SUPERUSER PASSWORD 'dba'
+  CREATEROLE CREATEDB;
+  
+-- Development Database
+  CREATE DATABASE dev_liquid_democracy
+    OWNER app_liquid_democracy;
+-- Test Database
+  CREATE DATABASE test_liquid_democracy
+    OWNER app_liquid_democracy;
+    
+6) Close the query editor without saving the script and in the Object Browser select the server 'liquid-democracy', right click and "Disconnect Server"
+
+7) After disconnecting from the server, right click again and select "Properties" and in the form change the following fields:
+
+Username: app_liquid_democracy
+
+Okay, now your PGAdmin is configured to access PostgreSQL.
