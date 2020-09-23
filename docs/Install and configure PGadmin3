@@ -24,7 +24,9 @@ Host: localhost
 
 4) Click on "Server Groups> Servers> liquid-democracy> Databases (3)> postgres" and then on the task bar in "SQL" to open the PGAdmin query editor
 
--- App Role CREATE ROLE app_liquid_democracy
+-- App Role
+
+  CREATE ROLE app_liquid_democracy
 
   LOGIN PASSWORD 'app_liquid_democracy';
   
